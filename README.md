@@ -109,7 +109,10 @@ Once created, note down the following information:
 - On the `Connect` tab, scroll down and note down the `Broker Service URL`.
 - Then click on `Token Manager`. On `Token Management`, click on the `Create Token` button and note down the newly created token.
 
-Additionally, click on `Download client.conf` and set the file aside for later use.
+Additionally, click on `Download client.conf` and set the file aside for later use.  
+Also, note down the following, as you'll need it in the next steps:
+- `brokerServiceUrl` from within the `client.conf` file
+- `authParams` from within the `client.conf` file (take only the part after `token:`)
 
 🥳 You just created a Streaming tenant. 
 
@@ -137,8 +140,6 @@ tar -xzf apache-pulsar-3.3.2-bin.tar.gz
 > Whenever a Pulsar CLI is called like `bin/pulsar-admin`, it is expected to be run from the just extracted`pulsar` folder.
 
 Now copy the `client.conf` file you downloaded earlier into the `apache-pulsar-3.x.x/conf` folder.
-
-Open the `client.conf` file and note down the value of `authParams`, take only the part after `token:`. You'll need it later.
 
 You can test the connection to the Pulsar cluster by running the following command:
 ```bash
