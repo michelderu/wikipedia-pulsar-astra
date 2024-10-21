@@ -147,7 +147,7 @@ bin/pulsar-admin namespaces list <tenant-name>
 ```
 
 ### Load the Vectorize Function
-The vectorize function is already packaged up and available in the `pulsar-functions/vectorize-function` folder.
+The vectorize function is already packaged up in a zip-file and available in the `pulsar-functions/vectorize-function` folder.
 
 ⚠️ First, copy the `create-config.yaml.example` file to `create-config.yaml`. Then open it and:
 - Update the `tenant` and `namespace` to the name of the tenant you created earlier. 
@@ -159,7 +159,7 @@ bin/pulsar-admin functions create --function-config-file=../pulsar-functions/vec
 ```
 
 ### Load the Astra DB Sink
-The Astra DB Sink is already packaged up and available in the `pulsar-functions/ingest-to-astra-function` folder.
+The Astra DB Sink is already packaged up in a zip-file and available in the `pulsar-functions/ingest-to-astra-function` folder.
 
 ⚠️ First, copy the `create-config.yaml.example` file to `create-config.yaml`. Then open it and:
 - Update the `tenant` and `namespace` to the name of the tenant you created earlier. 
@@ -178,7 +178,7 @@ bin/pulsar-admin functions create --function-config-file=../pulsar-functions/ing
 ## How to run the application
 
 ### Create a virtual environment in your project's root directory
-> When your Astra Streaming tenant is based on 2.11, you need to use Python 3.8 to build the function packages.
+> When your Astra Streaming tenant is based on 2.11, you need to use Python 3.8 to build the function packages in case you decide to change the source code.
 ```bash
 python3.8 -m venv .venv
 source .venv/bin/activate
