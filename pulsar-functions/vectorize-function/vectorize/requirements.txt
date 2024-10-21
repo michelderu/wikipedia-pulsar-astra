@@ -1,0 +1,2 @@
+python-dotenv
+pulsar-client==2.10

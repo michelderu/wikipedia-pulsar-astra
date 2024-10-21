@@ -1,0 +1,17 @@
+tenant: analyzer
+namespace: default
+name: ingest-to-astra-function
+# Update to the absolute path of the function's package
+py: /Users/michel.deru/projects/wikipedia-pulsar-astra/pulsar-functions/ingest-to-astra-function/ingest-to-astra.zip
+# className convention: filename.classname
+className: ingest-to-astra.IngestToAstraFunction
+parallelism: 1
+inputs:
+ - persistent://analyzer/default/wiki-stream-vectorized
+autoAck: true
+logTopic: persistent://analyzer/default/wiki-stream-log
+userConfig:
+  astra_db_api_endpoint: https://fac...
+  astra_db_application_token: AstraCS:OhP...
+  collection: wiki_data
+  logging_level: ERROR

@@ -1,0 +1,4 @@
+python-dotenv
+pulsar-client==2.10
+astrapy
+#dnspython==2.6

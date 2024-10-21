@@ -1,0 +1,15 @@
+tenant: wikipedia-stream
+namespace: default
+name: vectorize-function
+# Update to the absolute path of the function's package
+py: /Users/michel.deru/projects/wikipedia-pulsar-astra/pulsar-functions/vectorize-function/vectorize.zip
+# className convention: filename.classname
+className: vectorize.VectorizeFunction
+parallelism: 1
+inputs:
+ - persistent://analyzer/default/wiki-stream
+output: persistent://analyzer/default/wiki-stream-vectorized
+autoAck: true
+logTopic: persistent://analyzer/default/wiki-stream-log
+userConfig:
+ logging_level: ERROR
