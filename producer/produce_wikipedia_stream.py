@@ -10,7 +10,7 @@ import sys
 load_dotenv()
 
 def get_pulsar_producer():
-    service_url = 'pulsar+ssl://pulsar-aws-useast2.streaming.datastax.com:6651'
+    service_url = os.getenv('PULSAR_SERVICE')
     token = os.getenv('PULSAR_TOKEN')
     client = pulsar.Client(service_url, authentication=pulsar.AuthenticationToken(token))
     return client, client.create_producer(os.getenv('PULSAR_TOPIC'))
