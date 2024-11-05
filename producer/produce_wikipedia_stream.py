@@ -58,10 +58,10 @@ for line in r.iter_lines(decode_unicode=True):
             print(f"[{type} @ {servername}] {title} - {url}")
             extract = read_wiki_extract(title)
             timestamp = f"{datetime.datetime.now(timezone.utc).isoformat()[:-3]}Z"
+            # Langflow compatible (after vectorization) as title and source are used as metadata and content as the body
             extract_json = {
-                'source': 'wikipedia',
                 'title': title,
-                'url': url,
+                'source': url,
                 'content': extract,
                 'timestamp': timestamp,
                 'date': timestamp.split('T')[0]
@@ -69,4 +69,5 @@ for line in r.iter_lines(decode_unicode=True):
             publish_extract(json.dumps(extract_json))
             count += 1
 
+print(f"Published {count} messages")
 client.close()
