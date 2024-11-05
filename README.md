@@ -90,7 +90,7 @@ Navigate back to the database you created earlier
 - Give it a notable name (e.g. `wiki_data`)
 - Choose OpenAI as the embedding provider
 - Make sure the API Key is set to the one you created earlier
-- Select `text-embedding-ada-002` as the model
+- Select `text-embedding-3-small` as the model
 - Leave all other options as is
 - Click on the `Create Collection` button
 
@@ -124,8 +124,8 @@ If not selected already, click on the tenant name you created earlier.
 - Enable `Persistent`
 
 Repeat for the following Topic Names:
-- wiki-stream-vectorized
-- wiki-stream-log
+- `wiki-stream-vectorized`
+- `wiki-stream-log`
 
 🥳 You just created the required Pulsar topics.
 

@@ -7,9 +7,21 @@ input = """{
 }"""
 
 payload = json.loads(input)
-print (payload)
+print (f"Incoming: {payload}")
 
-payload["$vectorize"] = "abc"
-payload["metadata"] = {"source": "Pulsar"}
+# Create the result payload
+result = {}
+# Copy the content to the result
+result["content"] = payload["content"]
+# Create a new field in the payload with the content to vectorize
+result["$vectorize"] = payload["content"]
+# Process the metadata
+# 1. Add a metadata field in order for the collection to be used in Langflow
+metadata = {"source": "Pulsar"}
+# 2. Copy all the non-content fields to metadata
+for key, value in payload.items():
+      if key != "content":
+         metadata[key] = value
+result["metadata"] = metadata
 
-print (json.dumps(payload))
+print (f"Outgoing: {result}")
