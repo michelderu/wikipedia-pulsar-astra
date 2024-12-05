@@ -266,10 +266,13 @@ bin/pulsar-admin topics create "persistent://wikipedia-stream/default/wiki-strea
 ### Package the function
 In pulsar-functions/ingest-to-astra-function/ingest-to-astra:
 ```bash
-pip download -d ./deps -r requirements.txt # Allow Pulsar to install the dependencies (only needed once)
+# Allow Pulsar to install the dependencies (only needed once)
+pip download -d ./deps -r requirements.txt --only-binary=:all: --platform manylinux2014_x86_64
 cd ..
-rm ingest-to-astra.zip # Remove the existing package
-zip -r ingest-to-astra ingest-to-astra/ # Package the function
+# Remove the existing package
+rm ingest-to-astra.zip
+# Package the function
+zip -r ingest-to-astra ingest-to-astra/ 
 ```
 
 ### Create the function
